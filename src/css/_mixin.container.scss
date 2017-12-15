@@ -1,0 +1,24 @@
+@mixin g-add-container($name, $width) {
+  $new-container: ($name: $width);
+  $g-containerWidths: map-merge($g-containerWidths, $new-container) !global;
+}
+
+@mixin container($gutter: $g-gutter) {
+
+  @each $bpSet in $g-containerWidths {
+
+    $bpName: nth($bpSet, 1);
+    $bpPx: nth($bpSet, 2);
+
+    @include mq($from: $bpName) {
+
+      width: $bpPx;
+      padding-left: $gutter/2;
+      padding-right: $gutter/2;
+      margin: 0 auto;
+
+    }
+
+  }
+
+}

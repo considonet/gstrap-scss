@@ -1,0 +1,42 @@
+@mixin grid-container() {
+
+  @include clearfix();
+  
+  margin-left: $g-gutter/-2;
+  margin-right: $g-gutter/-2;
+
+  & > * {
+    padding-left: $g-gutter/2;
+    padding-right: $g-gutter/2;
+  }
+
+}
+
+@mixin grid-columns($columns, $gutter: $g-gutter) {
+
+  width: $columns/$g-columns*100%;
+  padding-left: $gutter/2;
+  padding-right: $gutter/2;
+  float: left;
+  min-height: 1px;
+  position: relative;
+
+}
+
+@mixin grid-push($columns) {
+
+  left: $columns/$g-columns*100%;
+
+}
+
+@mixin grid-pull($columns) {
+
+  right: $columns/$g-columns*100%;
+
+}
+
+@mixin grid-offset($columns) {
+
+  margin-left: $columns/$g-columns*100%;
+
+}

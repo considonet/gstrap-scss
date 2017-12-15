@@ -1,0 +1,69 @@
+@if $g-bootstrapCompat==true {
+
+  .container {
+    @include container();
+  }
+  .row {
+    @include grid-container();
+  }
+
+  .row > [class*=col-], .row > [class^=col-] {
+    @include grid-columns($g-columns);
+  }
+
+  @each $bpName in $g-bootstrap-mq {
+
+    $bootstrapBpName: $bpName;
+
+    @if($bpName == xs) {
+      $bpName: zero;
+    }
+
+    @include mq($from: $bpName) {
+
+      @for $c from 1 through $g-columns {
+
+        .row > .col-#{$bootstrapBpName}-#{$c} {
+          @include grid-columns($c);
+        }
+        .row > .col-#{$bootstrapBpName}-push-#{$c} {
+          @include grid-push($c);
+        }
+        .row > .col-#{$bootstrapBpName}-pull-#{$c} {
+          @include grid-pull($c);
+        }
+        .row > .col-#{$bootstrapBpName}-offset-#{$c} {
+          @include grid-offset($c);
+        }
+
+      }
+
+      .hidden-#{$bootstrapBpName} {
+        @include hide();
+      }
+      .visible-#{$bootstrapBpName} {
+        @include show();
+      }
+      td.visible-#{$bootstrapBpName} {
+        @include show(table-cell);
+      }
+      tr.visible-#{$bootstrapBpName} {
+        @include show(table-row);
+      }
+      table.visible-#{$bootstrapBpName} {
+        @include show(table);
+      }
+      .visible-#{$bootstrapBpName}-inline {
+        @include show(inline);
+      }
+      .visible-#{$bootstrapBpName}-inline-block {
+        @include show(inline-block);
+      }
+      .visible-#{$bootstrapBpName}-block {
+        @include show(block);
+      }
+
+    }
+  }
+
+}

@@ -1,0 +1,22 @@
+// *** Screen size break points ***
+// Main media queries
+$g-containerWidths: (
+        zero: 100%,
+        sm: 750px,
+        md: 970px,
+        lg: 1170px
+);
+
+$mq-breakpoints: (
+        zero: 0px,
+        xs: 320px,
+        sm: 768px,
+        md: 992px,
+        lg: 1200px,
+);
+
+$g-bootstrap-mq: (xs, sm, md, lg);
+
+// *** Grid configuration ***
+$g-columns: 12;  // How many columns are defined in the grid
+$g-gutter: 30px; // Grid gutter, applied symmetrically (/2)

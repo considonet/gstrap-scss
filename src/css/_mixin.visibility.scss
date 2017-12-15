@@ -1,0 +1,7 @@
+@mixin hide() {
+  display: none !important;
+}
+
+@mixin show($display: 'block') {
+  $display: $display !important;
+}

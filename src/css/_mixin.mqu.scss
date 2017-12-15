@@ -1,0 +1,12 @@
+@mixin mqu(
+  $until: false,
+  $and: false,
+  $media-type: $mq-media-type,
+  $breakpoints: $mq-breakpoints,
+  $responsive: $mq-responsive,
+  $static-breakpoint: $mq-static-breakpoint
+) {
+  @include mq($until: $until, $media-type: $media-type, $breakpoints: $breakpoints, $responsive: $responsive, $static-breakpoint: $static-breakpoint) {
+    @content;
+  }
+}

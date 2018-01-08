@@ -6,7 +6,7 @@
   $responsive: $mq-responsive,
   $static-breakpoint: $mq-static-breakpoint
 ) {
-  @include mq($until: $until, $media-type: $media-type, $breakpoints: $breakpoints, $responsive: $responsive, $static-breakpoint: $static-breakpoint) {
+  @include mq($until: $until, $and: $and, $media-type: $media-type, $breakpoints: $breakpoints, $responsive: $responsive, $static-breakpoint: $static-breakpoint) {
     @content;
   }
 }

@@ -1,4 +1,212 @@
+@mixin bootstrapRules($bootstrapBpName) {
+
+  .hidden-#{$bootstrapBpName} {
+    @include hide();
+  }
+  .visible-#{$bootstrapBpName} {
+    @include show();
+  }
+  td.visible-#{$bootstrapBpName} {
+    @include show(table-cell);
+  }
+  tr.visible-#{$bootstrapBpName} {
+    @include show(table-row);
+  }
+  table.visible-#{$bootstrapBpName} {
+    @include show(table);
+  }
+  .visible-#{$bootstrapBpName}-inline {
+    @include show(inline);
+  }
+  .visible-#{$bootstrapBpName}-inline-block {
+    @include show(inline-block);
+  }
+  .visible-#{$bootstrapBpName}-block {
+    @include show(block);
+  }
+
+}
+
 @if $g-bootstrapCompat==true {
+
+  body {
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+  h1 small,
+  h2 small,
+  h3 small,
+  h4 small,
+  h5 small,
+  h6 small,
+  .h1 small,
+  .h2 small,
+  .h3 small,
+  .h4 small,
+  .h5 small,
+  .h6 small,
+  h1 .small,
+  h2 .small,
+  h3 .small,
+  h4 .small,
+  h5 .small,
+  h6 .small,
+  .h1 .small,
+  .h2 .small,
+  .h3 .small,
+  .h4 .small,
+  .h5 .small,
+  .h6 .small {
+    font-weight: normal;
+    line-height: 1;
+    color: #777;
+  }
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  h1 small,
+  .h1 small,
+  h2 small,
+  .h2 small,
+  h3 small,
+  .h3 small,
+  h1 .small,
+  .h1 .small,
+  h2 .small,
+  .h2 .small,
+  h3 .small,
+  .h3 .small {
+    font-size: 65%;
+  }
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  h4 small,
+  .h4 small,
+  h5 small,
+  .h5 small,
+  h6 small,
+  .h6 small,
+  h4 .small,
+  .h4 .small,
+  h5 .small,
+  .h5 .small,
+  h6 .small,
+  .h6 .small {
+    font-size: 75%;
+  }
+  h1,
+  .h1 {
+    font-size: 36px;
+  }
+  h2,
+  .h2 {
+    font-size: 30px;
+  }
+  h3,
+  .h3 {
+    font-size: 24px;
+  }
+  h4,
+  .h4 {
+    font-size: 18px;
+  }
+  h5,
+  .h5 {
+    font-size: 14px;
+  }
+  h6,
+  .h6 {
+    font-size: 12px;
+  }
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  a {
+    color: #337ab7;
+    text-decoration: none;
+  }
+
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  ul ul,
+  ol ul,
+  ul ol,
+  ol ol {
+    margin-bottom: 0;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-justify {
+    text-align: justify;
+  }
+  .text-nowrap {
+    white-space: nowrap;
+  }
+  .text-lowercase {
+    text-transform: lowercase;
+  }
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+  .text-capitalize {
+    text-transform: capitalize;
+  }
+  .text-muted {
+    color: #777;
+  }
+  .text-primary {
+    color: #337ab7;
+  }
+
+  .hidden {
+    display: none !important;
+  }
 
   .container {
     @include container();
@@ -11,7 +219,14 @@
     @include grid-columns($g-columns);
   }
 
-  @each $bpName in $g-bootstrap-mq {
+  @for $i from 1 through length($g-bootstrap-mq) {
+
+    $bpName: nth($g-bootstrap-mq, $i);
+    $nextBpName: noBp;
+
+    @if($i+1 <= length($g-bootstrap-mq)) {
+      $nextBpName: nth($g-bootstrap-mq, $i+1);
+    }
 
     $bootstrapBpName: $bpName;
 
@@ -19,7 +234,7 @@
       $bpName: zero;
     }
 
-    @include mq($from: $bpName) {
+    @include mq($bpName) {
 
       @for $c from 1 through $g-columns {
 
@@ -38,32 +253,22 @@
 
       }
 
-      .hidden-#{$bootstrapBpName} {
-        @include hide();
+    }
+
+    @if($nextBpName == noBp) {
+
+      @include mq($from: $bpName) {
+        @include bootstrapRules($bootstrapBpName);
       }
-      .visible-#{$bootstrapBpName} {
-        @include show();
-      }
-      td.visible-#{$bootstrapBpName} {
-        @include show(table-cell);
-      }
-      tr.visible-#{$bootstrapBpName} {
-        @include show(table-row);
-      }
-      table.visible-#{$bootstrapBpName} {
-        @include show(table);
-      }
-      .visible-#{$bootstrapBpName}-inline {
-        @include show(inline);
-      }
-      .visible-#{$bootstrapBpName}-inline-block {
-        @include show(inline-block);
-      }
-      .visible-#{$bootstrapBpName}-block {
-        @include show(block);
+
+    } @else {
+
+      @include mq($from: $bpName, $until: $nextBpName) {
+        @include bootstrapRules($bootstrapBpName);
       }
 
     }
+
   }
 
 }

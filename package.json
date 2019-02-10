@@ -1,6 +1,6 @@
 {
   "name": "@considonet/gstrap-scss",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "GStrap framework SCSS libraries and default template",
   "main": "./src/css/index.scss",
   "scripts": {

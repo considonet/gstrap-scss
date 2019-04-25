@@ -1,4 +1,4 @@
-/* GStrap Framework 1.1.1
+/* GStrap SCSS Framework 1.2.0
  * Copyright 2014-2019 ConsidoNet Solutions
  * Licensed under MIT License
  *
@@ -32,6 +32,7 @@
 @import "mixin.visibility";
 @import "mixin.container";
 @import "mixin.grid";
+@import "mixin.fade";
 
 // Stylesheets
 @import "~normalize.css";

@@ -1,6 +1,6 @@
 {
   "name": "@considonet/gstrap-scss",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "GStrap framework SCSS libraries and default template",
   "main": "./src/css/index.scss",
   "scripts": {
@@ -9,7 +9,7 @@
   "keywords": [
     "gstrap"
   ],
-  "author": "ConsidoNet Solutions Paweł Gabryelewicz",
+  "author": "Paweł Gabryelewicz",
   "repository": "github:considonet/gstrap-scss",
   "license": "MIT",
   "dependencies": {

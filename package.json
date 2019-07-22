@@ -13,7 +13,6 @@
   "repository": "github:considonet/gstrap-scss",
   "license": "MIT",
   "dependencies": {
-    "normalize.css": "^8.0.1",
     "sass-mq": "^5.0.1"
   }
 }

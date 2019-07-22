@@ -1,7 +1,7 @@
 {
   "name": "@considonet/gstrap-scss",
-  "version": "1.2.1",
-  "description": "GStrap framework SCSS libraries and default template",
+  "version": "2.0.0",
+  "description": "Minimal SCSS framework for ConsidoNet projects",
   "main": "./src/css/index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

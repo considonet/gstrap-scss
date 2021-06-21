@@ -12,7 +12,5 @@
   "author": "Paweł Gabryelewicz",
   "repository": "github:considonet/gstrap-scss",
   "license": "MIT",
-  "dependencies": {
-    "sass-mq": "^5.0.1"
-  }
+  "dependencies": {}
 }

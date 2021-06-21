@@ -1,4 +1,4 @@
-/* GStrap SCSS Framework 2.0.0
+/* GStrap SCSS Framework 3.0.0
  * Copyright 2014-2019 Paweł Gabryelewicz
  * Licensed under MIT License
  *
@@ -25,7 +25,7 @@
 @import "gstrap.config";
 
 // Mixins
-@import "~sass-mq";
+@import "./plugins/mq";
 @import "mixin.mqu";
 @import "mixin.boxsizing";
 @import "mixin.clearfix";
@@ -36,4 +36,3 @@
 
 // Stylesheets
 @import "style.boxsizing";
-@import "style.bootstraplegacy";
